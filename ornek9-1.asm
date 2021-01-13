@@ -10,9 +10,9 @@ STACKSG SEGMENT PARA STACK 'STACK'
 STACKSG ENDS
 
 DATASG  SEGMENT PARA 'DATA'
-ASAYISI DW  1234H		          ; Giriş/Çıkış değerlerinin veri alanı üzerinde ilk
-BSAYISI DW  0ABCDH		          ; değer ataması yapılmaktadır.
-TOPLAM  DD  0H			          ; TOPLAM değişkeninin ilk değeri sıfır yapılır
+ASAYISI DW  1234H                       ; Giriş/Çıkış değerlerinin veri alanı üzerinde ilk
+BSAYISI DW  0ABCDH                      ; değer ataması yapılmaktadır.
+TOPLAM  DD  0H	                        ; TOPLAM değişkeninin ilk değeri sıfır yapılır
 DATASG  ENDS
 
 CODESG  SEGMENT PARA 'CODE'
@@ -32,14 +32,14 @@ ANA     PROC FAR
         ;------------------------------------------------------------------------
         ; Toplama işleminin gerçekleştirildiği kod bloğu
         ;------------------------------------------------------------------------
-        LEA SI, TOPLAM        ; SI TOPLAM değişkenin başladığı adresi belirler
-        MOV AX, ASAYISI       ; AX yazmacı ASAYISI’nın değerini tutar
-        MOV BX, BSAYISI       ; BX yazmacı BSAYISI’nın değerini tutar
-        ADD AX, BX            ; toplamın sonucu AX yazmacında bulunur
-        MOV [SI], AX          ; sonuç TOPLAM’ın en az anlamlı word’ünde
-                              ; oluşan eldeyi yüksek anlamlı word’e yaz
+        LEA SI, TOPLAM                  ; SI TOPLAM değişkenin başladığı adresi belirler
+        MOV AX, ASAYISI                 ; AX yazmacı ASAYISI’nın değerini tutar
+        MOV BX, BSAYISI                 ; BX yazmacı BSAYISI’nın değerini tutar
+        ADD AX, BX                      ; toplamın sonucu AX yazmacında bulunur
+        MOV [SI], AX                    ; sonuç TOPLAM’ın en az anlamlı word’ünde
+                                        ; oluşan eldeyi yüksek anlamlı word’e yaz
         ADC WORD PTR [SI+2], 0
         RET
 ANA     ENDP
 CODESG  ENDS
-        END ANA               ; Programın başlangıç noktası 
+        END ANA                         ; Programın başlangıç noktası 
