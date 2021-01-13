@@ -11,7 +11,7 @@ STACKSG ENDS
 
 DATASG  SEGMENT PARA 'DATA'
 ASAYISI DW  1234H		          ; Giriş/Çıkış değerlerinin veri alanı üzerinde ilk
-BSAYISI DW  0ABCDH		        ; değer ataması yapılmaktadır.
+BSAYISI DW  0ABCDH		          ; değer ataması yapılmaktadır.
 TOPLAM  DD  0H			          ; TOPLAM değişkeninin ilk değeri sıfır yapılır
 DATASG  ENDS
 
