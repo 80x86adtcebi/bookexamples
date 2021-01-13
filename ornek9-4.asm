@@ -34,21 +34,21 @@ ENDIAN  PROC   FAR
         ;------------------------------------------------------------------------
         ; Kontrol işleminin gerçekleştirildiği kod bloğu
         ;------------------------------------------------------------------------
-       MOV CX, 10                       ; Eleman sayısı CX’e yerleştirildi
-       LEA SI, DIZI                     ; Elemanlara erişmek için SI indis olacak
-CEVRIM:MOV AX, [SI]                     ; Sayı üzerindeki işlemi hızlı yapabilmek için
+        MOV CX, 10                       ; Eleman sayısı CX’e yerleştirildi
+        LEA SI, DIZI                     ; Elemanlara erişmek için SI indis olacak
+CEVRIM: MOV AX, [SI]                     ; Sayı üzerindeki işlemi hızlı yapabilmek için
                                         ; AX yazmacı üzerinden yapıyoruz
-       XCHG AL, AH                      ; Düşük ve yüksek anlamlı byte’ları değiştir
-       PUSH CX                          ; Tekrar sayısını belirleyen CX yazmaç değerini 
+        XCHG AL, AH                      ; Düşük ve yüksek anlamlı byte’ları değiştir
+        PUSH CX                          ; Tekrar sayısını belirleyen CX yazmaç değerini 
                                         ; yığında sakla
-       MOV CL, 4                        ; döndürme işleminin tekrar sayısı CL de
-       ROR AL, CL                       ; AL ve AH değerlerini kendi içlerinde CL ile 
-       ROR AH, CL                       ; belirlenen değer kadar (4) sağa döndür
-       MOV [SI], AX                     ; AX üzerinde oluşan yeni değeri yerine koy
-       ADD  SI,2                        ; SI’yı sonraki word’ü gösterecek biçimde ayarla
-       POP CX                           ; Yığında saklanan değeri alarak işleme devam et
-       LOOP CEVRIM                      ; işlemi CX de belirlenen sayı kadar tekrarla
-       RET                              ; dön
-ENDIAN ENDP
-CSEG   ENDS
-       END ENDIAN                       ; programın başlangıç noktası
+        MOV CL, 4                        ; döndürme işleminin tekrar sayısı CL de
+        ROR AL, CL                       ; AL ve AH değerlerini kendi içlerinde CL ile 
+        ROR AH, CL                       ; belirlenen değer kadar (4) sağa döndür
+        MOV [SI], AX                     ; AX üzerinde oluşan yeni değeri yerine koy
+        ADD  SI,2                        ; SI’yı sonraki word’ü gösterecek biçimde ayarla
+        POP CX                           ; Yığında saklanan değeri alarak işleme devam et
+        LOOP CEVRIM                      ; işlemi CX de belirlenen sayı kadar tekrarla
+        RET                              ; dön
+ENDIAN  ENDP
+CSEG    ENDS
+        END ENDIAN                       ; programın başlangıç noktası
