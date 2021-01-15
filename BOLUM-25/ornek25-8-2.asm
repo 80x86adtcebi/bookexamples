@@ -17,7 +17,7 @@ EBOB	PROC NEAR
                                         ; üzerinden karşılaştırılır. A ve B’den büyük 
                                         ; olan AX’in içerisine küçük olan BX’in içerisine
                                         ; konulur.
-	JAE L1			        ; AX, BX’den büyük eşitse istenilen kombinas-yon
+	JAE L1			        ; AX, BX’den büyük eşitse istenilen kombinasyon
                                         ; oluşmuştur. İşleme atlanır.
 	XCHG AX, BX		        ; AX, BX’den büyük değilse bu iki yazmacın
 					; içerisindeki değerler yer değiştirilir.
@@ -27,8 +27,8 @@ L1:	MOV DX, 0		        ; 16-bit’lik bölme işlemi yapılacağı için DX
 					;    32 / 28 -> Bölüm: 1,  Kalan: 4
 	CMP DX, 0		        ; Bölme işlemi sonucu kalan 0 ise EBOB, BX 
                                         ; yazmacı üzerinde oluşmuştur. 
-        JE L2			        ; O sebeple (kalan 0 ise) L2 etiketine atla-nır.
-        MOV AX, BX		        ; Kalan 0 değilse BX, AX’e, DX de BX’e alı-nır.
+        JE L2			        ; O sebeple (kalan 0 ise) L2 etiketine atlanır.
+        MOV AX, BX		        ; Kalan 0 değilse BX, AX’e, DX de BX’e alınır.
         MOV BX, DX
         JMP L1			        ; Koşullu döngünün başına atlanır.
 L2:	MOV SONUC, BX		        ; BX üzerinde oluşan EBOB değeri SONUC
