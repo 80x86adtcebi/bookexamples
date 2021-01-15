@@ -1,5 +1,5 @@
         ; --------------------------------------------------------------------------
-        ; Döngü işlemi CX yazmacı değeri kadar tekrarlanacağından çevrim başlama-dan 
+        ; Döngü işlemi CX yazmacı değeri kadar tekrarlanacağından çevrim başlamadan 
         ; CX yazmacı içerisine ilgili değer yazılmıştır.
         ; --------------------------------------------------------------------------
 CSEG 	SEGMENT PARA 'KOD'
@@ -26,7 +26,7 @@ L1:	PUSH AX			        ; AX yazmacının değeri tekrar kullanılacağı için
                                         ; DX değeri her durumda 0 olur.
         INC DI			        ; Çevrim indisi arttırılır.
         LOOP L1			        ; İşlem CX kere tekrar edilir.
-        MOV SONUC, BX		        ; BX yazmacında oluşan değer, SONUC de-ğişkenine
+        MOV SONUC, BX		        ; BX yazmacında oluşan değer, SONUC değişkenine
                                         ; alınır.
         RET
 MAIN	ENDP
