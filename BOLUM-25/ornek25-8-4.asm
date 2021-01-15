@@ -1,5 +1,5 @@
         ; --------------------------------------------------------------------------
-        ; JMP komutları ile atlanılan yerler akış diyagramında noktalı yuvarlak-larla 
+        ; JMP komutları ile atlanılan yerler akış diyagramında noktalı yuvarlaklarla 
         ; gösterilmektedir.
         ; --------------------------------------------------------------------------
         ; KULLANILAN DEĞİŞKENLERİN TANIMLANMASI 
@@ -43,12 +43,12 @@ ANA	PROC FAR
         MOV TIP, 3			        ; AL, CL’ye eşit değilse üçgen çeşitkenardır
         JMP SON				        ; Tip bulunmuştur, program sonuna atlanır.
 J1:	CMP AL, CL			        ; AL, BL’ye eşit olmadığı için buraya
-						; gelindi. Burada AL ile CL karşılaştırı-lır.
+						; gelindi. Burada AL ile CL karşılaştırılır.
 	JNE J2				        ; AL, CL’ye eşit değilse J2 etiketine 
                                                 ; atlanır.
 	MOV TIP, 1			        ; AL, CL’ye eşitse üçgen eşkenardır.
-	JMP SON				        ; Tip bulunmuştur, program sonuna atla-nır.
-J2:	MOV TIP, 2			        ; Diğer durumlarda ise üçgen ikizkenar-dır.
+	JMP SON				        ; Tip bulunmuştur, program sonuna atlanır.
+J2:	MOV TIP, 2			        ; Diğer durumlarda ise üçgen ikizkenardır.
 SON:	RETF
 ANA	ENDP
 CODESG	ENDS
